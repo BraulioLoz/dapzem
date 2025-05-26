@@ -41,11 +41,13 @@ body {
 
 /* Hero */
 #hero {
-  text-align: center;
-  padding: 4rem 1rem;
+    background: var(--brand-green);
+    text-align: center;
+    padding: 4rem 1rem;
 }
 #hero .logo {
   max-width: 420px;
+  width: 80%; 
   margin-bottom: 1rem;
   display: block;
   margin-left: auto;
