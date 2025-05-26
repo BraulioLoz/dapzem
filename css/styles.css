@@ -2,7 +2,7 @@
 
 :root {
   --brand-green: #98c697;
-  --brand-brown: #190c00; /* asumí 6 dígitos: #190c00 */
+  --brand-brown: #190c00;
 }
 
 * {
@@ -27,14 +27,26 @@ body {
 #hero .logo {
   max-width: 200px;
   margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Secciones */
+/* Global section padding */
 section {
   padding: 2rem 1rem;
 }
 
-/* Galería */
+/* Features list */
+.features {
+  list-style: disc inside;
+  margin: 1rem 0;
+}
+.features li {
+  margin-bottom: 0.5rem;
+}
+
+/* Gallery */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -47,57 +59,23 @@ section {
   display: block;
 }
 
-.features {
-  list-style: disc inside;
-  margin: 1rem 0;
-  color: var(--brand-brown);
-}
-.features li {
-  margin-bottom: 0.5rem;
-}
-
-
-/* Contacto */
-#contact p {
-  margin-bottom: 0.5rem;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .gallery img {
-    width: 100%;
-  }
-}
-
-
-.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* Bienvenida */
+/* Welcome */
 #welcome h2 {
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
-/* Amenidades */
+/* Amenities */
 #amenities .amenities-list li {
   margin-bottom: 0.75rem;
   list-style: disc inside;
 }
 
-/* Acabados */
+/* Finishes */
 #finishes .finishes-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.5rem 1rem;
 }
 #finishes .finishes-list li::before {
@@ -105,14 +83,14 @@ section {
   color: var(--brand-brown);
 }
 
-/* Áreas del proyecto */
+/* Areas */
 #areas .areas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
-/* Precio */
+/* Pricing */
 #pricing p {
   font-size: 1.5rem;
   font-weight: bold;
@@ -120,10 +98,10 @@ section {
   margin: 1rem 0;
 }
 
-/* Proximidad */
+/* Proximity */
 #proximity .proximity-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
 }
 #proximity h3 {
@@ -134,36 +112,66 @@ section {
   list-style: disc inside;
 }
 
+/* Contact */
+#contact p {
+  margin-bottom: 0.5rem;
+}
 
-/* Base común: escala y separación */
+/* Scroll-reveal animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image utility classes */
 .about-image {
   max-width: 100%;
   display: block;
   border-radius: 8px;
 }
 
-/* Imagen centrada */
+/* Centered image */
 .about-image--center {
   margin: 2rem auto;
 }
 
-/* Imagen alineada a la izquierda, texto fluyendo a la derecha */
+/* Float images on desktop */
 .about-image--left {
   float: left;
-  width: 45%;            /* ajusta % según diseño */
+  width: 45%;
   margin: 1rem 1.5rem 1rem 0;
 }
-
-/* Imagen alineada a la derecha, texto fluyendo a la izquierda */
 .about-image--right {
   float: right;
-  width: 45%;            /* ajusta % según diseño */
+  width: 45%;
   margin: 1rem 0 1rem 1.5rem;
 }
 
-/* Asegurar que al terminar cada sección no queden floats colgando */
+/* Clear floats at end of each section */
 section::after {
   content: "";
   display: table;
   clear: both;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  /* Gallery full-width */
+  .gallery img {
+    width: 100%;
+  }
+
+  /* Feature images full-width, no floats */
+  .about-image--center,
+  .about-image--left,
+  .about-image--right {
+    float: none !important;
+    width: 100% !important;
+    margin: 1rem auto !important;
+  }
 }
