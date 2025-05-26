@@ -18,13 +18,16 @@ body {
   font-family: 'Montserrat Classic', sans-serif;
   line-height: 1.6;
   /* degradado desde verde a blanco, se vuelve 100% blanco alrededor de la sección de Amenidades */
+  background: white; 
+  color: var(--brand-brown);
+}
+.gradient-wrapper {
+  /* Degradado de verde a blanco a lo largo de este contenedor */
   background: linear-gradient(
     to bottom,
     var(--brand-green) 0%,
-    white 50%,
     white 100%
   );
-  color: var(--brand-brown);
 }
 
 /* Hero */
