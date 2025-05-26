@@ -25,11 +25,9 @@ body {
   padding: 4rem 1rem;
 }
 #hero .logo {
-  max-width: 280px;
-  margin-bottom: 1rem;
+  max-width: 400px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 1rem;
 }
 
 /* Global section padding */
@@ -133,6 +131,7 @@ section {
   max-width: 100%;
   display: block;
   border-radius: 8px;
+  padding: 0 1rem;
 }
 
 /* Centered image */
@@ -152,6 +151,25 @@ section {
   margin: 1rem 0 1rem 1.5rem;
 }
 
+/* Captions aligned with their images */
+.about-image--center + h3 {
+  text-align: center;
+  margin: 0.5rem auto 1rem;
+  padding: 0 1rem;
+}
+.about-image--left + h3 {
+  text-align: left;
+  clear: left;
+  margin: 0.5rem 1.5rem 1rem 0;
+  padding: 0 1rem;
+}
+.about-image--right + h3 {
+  text-align: right;
+  clear: right;
+  margin: 0.5rem 0 1rem 1.5rem;
+  padding: 0 1rem;
+}
+
 /* Clear floats at end of each section */
 section::after {
   content: "";
@@ -166,12 +184,21 @@ section::after {
     width: 100%;
   }
 
-  /* Feature images full-width, no floats */
+  /* Images full-width, no floats */
   .about-image--center,
   .about-image--left,
   .about-image--right {
     float: none !important;
     width: 100% !important;
     margin: 1rem auto !important;
+  }
+  /* Captions full-width */
+  .about-image--center + h3,
+  .about-image--left + h3,
+  .about-image--right + h3 {
+    clear: none;
+    text-align: center;
+    margin: 0.5rem auto 1rem !important;
+    padding: 0 1rem !important;
   }
 }
