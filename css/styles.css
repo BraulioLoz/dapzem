@@ -14,40 +14,26 @@
   padding: 0;
 }
 
-/* Contenedor con degradado desde verde al inicio hasta blanco al final */
-.gradient-wrapper {
-  background: linear-gradient(
-    to bottom,
-    var(--brand-green) 0%,
-    /* Ajusta el porcentaje para que el blanco comience exactamente al terminar el logo + about + welcome */
-    white 100%
-  );
-}
-
-/* Para que las secciones hijas hereden correctamente el fondo, 
-   elimina cualquier color de fondo que tuvieran */
-.gradient-wrapper section {
-  background: transparent;
-}
-
-
 body {
   font-family: 'Montserrat Classic', sans-serif;
   line-height: 1.6;
   /* degradado desde verde a blanco, se vuelve 100% blanco alrededor de la sección de Amenidades */
-  background: white;
+  background: linear-gradient(
+    to bottom,
+    var(--brand-green) 0%,
+    white 50%,
+    white 100%
+  );
   color: var(--brand-brown);
 }
 
 /* Hero */
 #hero {
-    background: var(--brand-green);
-    text-align: center;
-    padding: 4rem 1rem;
+  text-align: center;
+  padding: 4rem 1rem;
 }
 #hero .logo {
-  max-width: 420px;
-  width: 80%; 
+  max-width: 400px;
   margin-bottom: 1rem;
   display: block;
   margin-left: auto;
