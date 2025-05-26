@@ -133,3 +133,37 @@ section {
   margin-bottom: 0.5rem;
   list-style: disc inside;
 }
+
+
+/* Base común: escala y separación */
+.about-image {
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Imagen centrada */
+.about-image--center {
+  margin: 2rem auto;
+}
+
+/* Imagen alineada a la izquierda, texto fluyendo a la derecha */
+.about-image--left {
+  float: left;
+  width: 45%;            /* ajusta % según diseño */
+  margin: 1rem 1.5rem 1rem 0;
+}
+
+/* Imagen alineada a la derecha, texto fluyendo a la izquierda */
+.about-image--right {
+  float: right;
+  width: 45%;            /* ajusta % según diseño */
+  margin: 1rem 0 1rem 1.5rem;
+}
+
+/* Asegurar que al terminar cada sección no queden floats colgando */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
