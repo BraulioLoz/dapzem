@@ -14,16 +14,28 @@
   padding: 0;
 }
 
+/* Contenedor con degradado desde verde al inicio hasta blanco al final */
+.gradient-wrapper {
+  background: linear-gradient(
+    to bottom,
+    var(--brand-green) 0%,
+    /* Ajusta el porcentaje para que el blanco comience exactamente al terminar el logo + about + welcome */
+    white 100%
+  );
+}
+
+/* Para que las secciones hijas hereden correctamente el fondo, 
+   elimina cualquier color de fondo que tuvieran */
+.gradient-wrapper section {
+  background: transparent;
+}
+
+
 body {
   font-family: 'Montserrat Classic', sans-serif;
   line-height: 1.6;
   /* degradado desde verde a blanco, se vuelve 100% blanco alrededor de la sección de Amenidades */
-  background: linear-gradient(
-    to bottom,
-    var(--brand-green) 0%,
-    white 35%,
-    white 100%
-  );
+  background: white;
   color: var(--brand-brown);
 }
 
