@@ -34,7 +34,8 @@ body {
 
 /* Global section padding */
 section {
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;     /* más padding vertical */
+  margin-bottom: 3rem;    /* espacio extra entre secciones */
 }
 
 /* Features list */
@@ -117,18 +118,66 @@ section {
   margin-bottom: 0.5rem;
 }
 
-/* Scroll-reveal animation */
+/* 2. Scroll-reveal animations */
+/* Fade + slide up */
 .hidden {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
 }
 .visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Image utility classes */
+/* Fade simple */
+.hidden-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  will-change: opacity;
+}
+.visible-fade {
+  opacity: 1;
+}
+
+/* Slide desde la izquierda */
+.hidden-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+.visible-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Zoom in */
+.hidden-zoom {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+.visible-zoom {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Desenfoque (blur) */
+.hidden-blur {
+  opacity: 0;
+  filter: blur(5px);
+  transition: opacity 0.6s ease-out, filter 0.6s ease-out;
+  will-change: opacity, filter;
+}
+.visible-blur {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* 3. Image utilities */
 .about-image {
   max-width: 100%;
   display: block;
@@ -136,12 +185,10 @@ section {
   padding: 0 1rem;
 }
 
-/* Centered image */
+/* Alignment classes */
 .about-image--center {
   margin: 2rem auto;
 }
-
-/* Float images on desktop */
 .about-image--left {
   float: left;
   width: 45%;
@@ -153,33 +200,25 @@ section {
   margin: 1rem 0 1rem 1.5rem;
 }
 
-/* Captions aligned with their images */
-.about-image--center + h3 {
-  text-align: center;
-  margin: 0.5rem auto 1rem;
+/* Captions */
+.caption {
+  display: block;
+  margin: 1rem 0;
   padding: 0 1rem;
+  font-weight: 500;
 }
-.about-image--left + h3 {
-  text-align: left;
-  clear: left;
-  margin: 0.5rem 1.5rem 1rem 0;
-  padding: 0 1rem;
-}
-.about-image--right + h3 {
-  text-align: right;
-  clear: right;
-  margin: 0.5rem 0 1rem 1.5rem;
-  padding: 0 1rem;
-}
+.caption--center { text-align: center; }
+.caption--left   { text-align: left; }
+.caption--right  { text-align: right; }
 
-/* Clear floats at end of each section */
+/* Clear floats */
 section::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive adjustments */
+/* 4. Responsive adjustments */
 @media (max-width: 600px) {
   /* Gallery full-width */
   .gallery img {
@@ -194,13 +233,12 @@ section::after {
     width: 100% !important;
     margin: 1rem auto !important;
   }
-  /* Captions full-width */
-  .about-image--center + h3,
-  .about-image--left + h3,
-  .about-image--right + h3 {
-    clear: none;
-    text-align: center;
+
+  /* Captions full-width & centered */
+  .caption--center,
+  .caption--left,
+  .caption--right {
+    text-align: center !important;
     margin: 0.5rem auto 1rem !important;
-    padding: 0 1rem !important;
   }
 }
