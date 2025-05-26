@@ -2,7 +2,10 @@
 
 :root {
   --brand-green: #98c697;
+  --brand-green-light: #cfe8cf;   /* verde claro para fondos */
+  --brand-green-dark: #336633; 
   --brand-brown: #190c00;
+
 }
 
 * {
@@ -14,13 +17,18 @@
 body {
   font-family: 'Montserrat Classic', sans-serif;
   line-height: 1.6;
-  background: white;
+  /* degradado desde verde a blanco, se vuelve 100% blanco alrededor de la sección de Amenidades */
+  background: linear-gradient(
+    to bottom,
+    var(--brand-green) 0%,
+    white 35%,
+    white 100%
+  );
   color: var(--brand-brown);
 }
 
 /* Hero */
 #hero {
-  background: var(--brand-green);
   text-align: center;
   padding: 4rem 1rem;
 }
@@ -37,6 +45,33 @@ section {
   padding: 3rem 1rem;     /* más padding vertical */
   margin-bottom: 3rem;    /* espacio extra entre secciones */
 }
+
+/* 5. Sombra en títulos h2 */
+section h2 {
+  text-shadow: 2px 2px 4px rgba(152,198,151,0.5);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* 6. Círculo para imagen destacada */
+.image-circle {
+  background: var(--brand-green-light);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  overflow: hidden;
+  margin: 2rem auto; /* centrar por defecto, ajustar con floats si es necesario */
+}
+
+.image-circle img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 50%; /* se asegura que la imagen también quede circular */
+}
+
 
 /* Features list */
 .features {
@@ -84,11 +119,12 @@ section {
   color: var(--brand-brown);
 }
 
-/* Areas */
-#areas .areas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+/* 11. Áreas del proyecto: cajitas verdes */
+#areas .areas-grid > div {
+  background: var(--brand-green-light);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Pricing */
@@ -113,7 +149,17 @@ section {
   list-style: disc inside;
 }
 
-/* Contact */
+/* 14. Contacto en bloque oscuro */
+#contact {
+  background: var(--brand-green-dark);
+  color: white;
+  border-radius: 8px;
+  padding: 2rem 1rem;
+}
+#contact h2 {
+  color: white;
+  text-shadow: none;
+}
 #contact p {
   margin-bottom: 0.5rem;
 }
@@ -235,10 +281,12 @@ section::after {
   }
 
   /* Captions full-width & centered */
-  .caption--center,
-  .caption--left,
-  .caption--right {
+   .caption {
     text-align: center !important;
     margin: 0.5rem auto 1rem !important;
+  }
+  #areas .areas-grid > div {
+    width: 100%;
+    margin: 1rem 0 !important;
   }
 }
