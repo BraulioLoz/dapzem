@@ -138,10 +138,24 @@ section h2 {
 }
 
 /* 15. Proximidad */
+/* 1) Degradado en la sección de Proximidad */
+#proximity {
+  background: linear-gradient(
+    to bottom,
+    white 0%,
+    white 30%,               /* sigue blanco hasta 30% de altura */
+    var(--brand-green-dark) 100% /* termina en tu verde oscuro */
+  );
+  padding: 3rem 1rem;        /* conserva tu padding habitual */
+  border-radius: 8px;        /* opcional, para redondear esquinas si quieres */
+  margin-bottom: 3rem;       /* igual que el resto de secciones */
+}
+
 #proximity .proximity-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+    background: transparent; /* modifiqué esto*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
 }
 #proximity h3 {
   margin-bottom: 0.5rem;
