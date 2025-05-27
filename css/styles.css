@@ -1,28 +1,30 @@
+/* 1. Fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Classic:wght@400;500;700&display=swap');
 
 :root {
   --brand-green: #98c697;
-  --brand-green-light: #cfe8cf;   /* verde claro para fondos */
-  --brand-green-dark: #336633; 
+  --brand-green-light: #cfe8cf;
+  --brand-green-dark: #336633;
   --brand-brown: #190c00;
-
 }
 
+/* 2. Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* 3. Base */
 body {
   font-family: 'Montserrat Classic', sans-serif;
   line-height: 1.6;
-  /* degradado desde verde a blanco, se vuelve 100% blanco alrededor de la sección de Amenidades */
-  background: white; 
+  background: white;
   color: var(--brand-brown);
 }
+
+/* 4. Contenedor degradado */
 .gradient-wrapper {
-  /* Degradado de verde a blanco a lo largo de este contenedor */
   background: linear-gradient(
     to bottom,
     var(--brand-green) 0%,
@@ -30,33 +32,34 @@ body {
   );
 }
 
-/* Hero */
+/* 5. Hero */
 #hero {
+  background: var(--brand-green);
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 1rem;             /* más compacto */
 }
 #hero .logo {
-  max-width: 400px;
-  margin-bottom: 1rem;
+  max-width: 500px;           /* logo más grande */
+  width: 80%;
+  height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
-/* Global section padding */
+/* 6. Secciones */
 section {
-  padding: 3rem 1rem;     /* más padding vertical */
-  margin-bottom: 3rem;    /* espacio extra entre secciones */
+  padding: 3rem 1rem;
+  margin-bottom: 3rem;
 }
 
-/* 5. Sombra en títulos h2 */
+/* 7. Sombra en títulos h2 */
 section h2 {
-  text-shadow: 2px 2px 4px rgba(152,198,151,0.5);
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(152, 198, 151, 0.5);
 }
 
-/* 6. Círculo para imagen destacada */
+/* 8. Círculo para imagen destacada */
 .image-circle {
   background: var(--brand-green-light);
   border-radius: 50%;
@@ -65,18 +68,16 @@ section h2 {
   justify-content: center;
   padding: 0.5rem;
   overflow: hidden;
-  margin: 2rem auto; /* centrar por defecto, ajustar con floats si es necesario */
+  margin: 2rem auto;
 }
-
 .image-circle img {
   width: 100%;
   height: auto;
+  border-radius: 50%;
   display: block;
-  border-radius: 50%; /* se asegura que la imagen también quede circular */
 }
 
-
-/* Features list */
+/* 9. Listas y galerías */
 .features {
   list-style: disc inside;
   margin: 1rem 0;
@@ -85,7 +86,6 @@ section h2 {
   margin-bottom: 0.5rem;
 }
 
-/* Gallery */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -98,19 +98,19 @@ section h2 {
   display: block;
 }
 
-/* Welcome */
+/* 10. Welcome */
 #welcome h2 {
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
-/* Amenities */
+/* 11. Amenidades */
 #amenities .amenities-list li {
   margin-bottom: 0.75rem;
   list-style: disc inside;
 }
 
-/* Finishes */
+/* 12. Acabados */
 #finishes .finishes-list {
   list-style: none;
   display: grid;
@@ -122,7 +122,7 @@ section h2 {
   color: var(--brand-brown);
 }
 
-/* 11. Áreas del proyecto: cajitas verdes */
+/* 13. Áreas del proyecto */
 #areas .areas-grid > div {
   background: var(--brand-green-light);
   border-radius: 8px;
@@ -130,7 +130,7 @@ section h2 {
   margin-bottom: 1rem;
 }
 
-/* Pricing */
+/* 14. Pricing */
 #pricing p {
   font-size: 1.5rem;
   font-weight: bold;
@@ -138,7 +138,7 @@ section h2 {
   margin: 1rem 0;
 }
 
-/* Proximity */
+/* 15. Proximidad */
 #proximity .proximity-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -152,7 +152,7 @@ section h2 {
   list-style: disc inside;
 }
 
-/* 14. Contacto en bloque oscuro */
+/* 16. Contacto */
 #contact {
   background: var(--brand-green-dark);
   color: white;
@@ -167,104 +167,23 @@ section h2 {
   margin-bottom: 0.5rem;
 }
 
-/* 2. Scroll-reveal animations */
-/* Fade + slide up */
+/* 17. Scroll-reveal (fade-in único) */
 .hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Fade simple */
-.hidden-fade {
   opacity: 0;
   transition: opacity 0.8s ease-out;
   will-change: opacity;
 }
-.visible-fade {
-  opacity: 1;
-}
-
-/* Slide desde la izquierda */
-.hidden-left {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
-}
-.visible-left {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Slide desde la derecha */
-.hidden-right {
-  opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
-}
-.visible-right {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Mejorar las transiciones existentes para que sean más suaves */
-.hidden {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
-}
-
 .visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* Asegurar que las secciones no se oculten completamente durante la carga */
-section {
-  min-height: auto;
-  transition: all 0.3s ease;
-}
-
-/* Zoom in */
-.hidden-zoom {
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
-}
-.visible-zoom {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Desenfoque (blur) */
-.hidden-blur {
-  opacity: 0;
-  filter: blur(5px);
-  transition: opacity 0.6s ease-out, filter 0.6s ease-out;
-  will-change: opacity, filter;
-}
-.visible-blur {
-  opacity: 1;
-  filter: blur(0);
-}
-
-/* 3. Image utilities */
+/* 18. Imagen y caption utilities */
 .about-image {
   max-width: 100%;
   display: block;
   border-radius: 8px;
   padding: 0 1rem;
 }
-
-/* Alignment classes */
 .about-image--center {
   margin: 2rem auto;
 }
@@ -279,7 +198,6 @@ section {
   margin: 1rem 0 1rem 1.5rem;
 }
 
-/* Captions */
 .caption {
   display: block;
   margin: 1rem 0;
@@ -287,24 +205,21 @@ section {
   font-weight: 500;
 }
 .caption--center { text-align: center; }
-.caption--left   { text-align: left; }
-.caption--right  { text-align: right; }
+.caption--left   { text-align: left;   }
+.caption--right  { text-align: right;  }
 
-/* Clear floats */
+/* 19. Clear floats */
 section::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* 4. Responsive adjustments */
+/* 20. Responsive */
 @media (max-width: 600px) {
-  /* Gallery full-width */
   .gallery img {
     width: 100%;
   }
-
-  /* Images full-width, no floats */
   .about-image--center,
   .about-image--left,
   .about-image--right {
@@ -312,9 +227,7 @@ section::after {
     width: 100% !important;
     margin: 1rem auto !important;
   }
-
-  /* Captions full-width & centered */
-   .caption {
+  .caption {
     text-align: center !important;
     margin: 0.5rem auto 1rem !important;
   }
