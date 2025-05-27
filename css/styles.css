@@ -201,6 +201,37 @@ section h2 {
   transform: translateX(0);
 }
 
+/* Slide desde la derecha */
+.hidden-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+.visible-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mejorar las transiciones existentes para que sean más suaves */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Asegurar que las secciones no se oculten completamente durante la carga */
+section {
+  min-height: auto;
+  transition: all 0.3s ease;
+}
+
 /* Zoom in */
 .hidden-zoom {
   opacity: 0;
