@@ -4,7 +4,7 @@
 :root {
   --brand-green: #98c697;
   --brand-green-light: #cfe8cf;
-  --brand-green-dark: #336633;
+  --brand-green-dark: #607860;
   --brand-brown: #190c00;
 }
 
@@ -17,7 +17,7 @@
 
 /* 3. Base */
 body {
-  font-family: 'Montserrat Classic', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
   background: white;
   color: var(--brand-brown);
