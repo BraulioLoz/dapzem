@@ -34,7 +34,6 @@ body {
 
 /* 5. Hero */
 #hero {
-  background: var(--brand-green);
   text-align: center;
   padding: 1rem;             /* más compacto */
 }
@@ -215,7 +214,7 @@ section::after {
   clear: both;
 }
 
-/* 20. Responsive */
+/* 20. Responsive */ 
 @media (max-width: 600px) {
   .gallery img {
     width: 100%;
